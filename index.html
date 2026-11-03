@@ -25,7 +25,7 @@
     --btn-active-text: #b05a36;
   }
 
-  /* ================= 灵感配色主题 ================= */
+  /* ================= 主题 ================= */
   .theme-orange {
     --bg-color: #fcf9f2; --board-bg: #ffffff; --board-border: #f2e9da;
     --cell-bg: #f7f3ec; --cell-border: #eee7db;
@@ -48,47 +48,31 @@
     --btn-active: #CAEBED; --btn-active-text: #3b647c;
   }
 
-  /* ================= 方块质感 ================= */
+  /* ================= 质感 ================= */
   .mat-macaron .cell.block, .mat-macaron .mini-block, .mat-macaron .ghost-cell {
-    background: var(--c1) !important;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.06), inset 0 -2px 0 rgba(0,0,0,0.05) !important;
-    border-radius: 8px; 
+    background: var(--c1) !important; box-shadow: 0 2px 5px rgba(0,0,0,0.06), inset 0 -2px 0 rgba(0,0,0,0.05) !important; border-radius: 8px; 
   }
   .mat-macaron .cell.block::after, .mat-macaron .mini-block::after { display: none; }
 
   .mat-cookie .cell.block, .mat-cookie .mini-block, .mat-cookie .ghost-cell {
-    background: var(--c1) !important;
-    box-shadow: 
-      inset 0 2px 2px rgba(255,255,255,0.6), 
-      inset 0 -3px 4px rgba(0,0,0,0.08), 
-      0 3px 6px rgba(0,0,0,0.08) !important;
-    border-radius: 9px;
-    border: 1px solid rgba(0,0,0,0.03);
+    background: var(--c1) !important; box-shadow: inset 0 2px 2px rgba(255,255,255,0.6), inset 0 -3px 4px rgba(0,0,0,0.08), 0 3px 6px rgba(0,0,0,0.08) !important; border-radius: 9px; border: 1px solid rgba(0,0,0,0.03);
   }
   .mat-cookie .cell.block::after, .mat-cookie .mini-block::after { display: none; }
 
   .mat-jelly .cell.block, .mat-jelly .mini-block, .mat-jelly .ghost-cell {
-    background: linear-gradient(145deg, var(--c1), var(--c2)) !important;
-    box-shadow: 
-      inset 0 2px 3px rgba(255,255,255,0.7), 
-      inset 0 -2px 3px rgba(0,0,0,0.1),
-      0 3px 6px rgba(0,0,0,0.08) !important;
-    border-radius: 10px;
+    background: linear-gradient(145deg, var(--c1), var(--c2)) !important; box-shadow: inset 0 2px 3px rgba(255,255,255,0.7), inset 0 -2px 3px rgba(0,0,0,0.1), 0 3px 6px rgba(0,0,0,0.08) !important; border-radius: 10px;
   }
   .mat-jelly .cell.block::after, .mat-jelly .mini-block::after {
-    content: ""; position: absolute; top: 15%; left: 15%;
-    width: 30%; height: 15%; background: rgba(255,255,255,0.6); border-radius: 50%;
+    content: ""; position: absolute; top: 15%; left: 15%; width: 30%; height: 15%; background: rgba(255,255,255,0.6); border-radius: 50%;
   }
 
   /* ================= 基础布局 ================= */
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html, body { margin: 0; min-height: 100%; overflow-x: hidden; }
-  
   body {
     min-height: 100vh; display: flex; flex-direction: column; align-items: center;
     color: var(--text-main); font-family: ui-rounded, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
-    background-color: var(--bg-color); transition: background-color 0.4s ease;
-    user-select: none;
+    background-color: var(--bg-color); transition: background-color 0.4s ease; user-select: none;
   }
 
   .app { width: min(96vw, 460px); display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 16px 0 24px; }
@@ -96,58 +80,42 @@
   .header { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 0 8px; }
   .score-panel { display: flex; gap: 8px; }
   .score-box {
-    background: var(--panel-bg); padding: 6px 14px; border-radius: 16px;
-    box-shadow: var(--shadow); display: flex; flex-direction: column; align-items: center;
-    transition: background 0.4s;
+    background: var(--panel-bg); padding: 6px 14px; border-radius: 16px; box-shadow: var(--shadow); display: flex; flex-direction: column; align-items: center; transition: background 0.4s;
   }
   .score-box span { font-size: 11px; color: var(--text-sub); font-weight: bold; }
   .score-box strong { font-size: 20px; font-weight: 900; font-variant-numeric: tabular-nums; color: var(--text-main); }
   
   .header-actions { display: flex; gap: 8px; }
   .icon-btn {
-    width: 36px; height: 36px; border-radius: 50%; border: none;
-    background: var(--panel-bg); box-shadow: var(--shadow);
-    font-size: 18px; display: flex; align-items: center; justify-content: center;
-    cursor: pointer; color: var(--text-main);
-    transition: transform 0.2s, background 0.4s;
+    width: 36px; height: 36px; border-radius: 50%; border: none; background: var(--panel-bg); box-shadow: var(--shadow);
+    font-size: 18px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-main); transition: transform 0.2s, background 0.4s;
   }
   .icon-btn:active { transform: scale(0.9); }
 
   .board-shell {
-    position: relative; width: var(--board-size);
-    background: var(--board-bg); border-radius: var(--radius); padding: var(--pad);
-    box-shadow: var(--shadow); border: 2px solid var(--board-border);
-    transition: all 0.4s ease;
+    position: relative; width: var(--board-size); background: var(--board-bg); border-radius: var(--radius); padding: var(--pad);
+    box-shadow: var(--shadow); border: 2px solid var(--board-border); transition: all 0.4s ease;
   }
 
   .board {
-    width: 100%; aspect-ratio: 1 / 1; display: grid;
-    grid-template-columns: repeat(10, 1fr); grid-template-rows: repeat(10, 1fr); gap: var(--gap);
+    width: 100%; aspect-ratio: 1 / 1; display: grid; grid-template-columns: repeat(10, 1fr); grid-template-rows: repeat(10, 1fr); gap: var(--gap);
   }
 
   .cell {
-    position: relative; border-radius: 7px;
-    background: var(--cell-bg); border: 1px solid var(--cell-border);
-    transition: all 0.2s ease;
+    position: relative; border-radius: 7px; background: var(--cell-bg); border: 1px solid var(--cell-border); transition: all 0.2s ease;
   }
   .cell.block { z-index: 1; }
   
-  /* 强化预览落点：半透明+白边 */
+  /* 强化预览落点 */
   .cell.preview {
-    opacity: 0.65;
-    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.9);
-    border-color: transparent;
+    opacity: 0.65; box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.9); border-color: transparent;
   }
 
-  .tray {
-    width: 100%; min-height: 90px; display: flex; align-items: center; justify-content: space-around; padding: 4px 0;
-  }
+  .tray { width: 100%; min-height: 90px; display: flex; align-items: center; justify-content: space-around; padding: 4px 0; }
 
   .piece-slot {
-    --mini: 15px; width: 90px; height: 84px;
-    display: flex; align-items: center; justify-content: center;
-    border-radius: 20px; background: var(--panel-bg); box-shadow: var(--shadow);
-    cursor: grab; touch-action: none; transition: transform 0.2s, opacity 0.2s, background 0.4s;
+    --mini: 15px; width: 90px; height: 84px; display: flex; align-items: center; justify-content: center;
+    border-radius: 20px; background: var(--panel-bg); box-shadow: var(--shadow); cursor: grab; touch-action: none; transition: transform 0.2s, opacity 0.2s, background 0.4s;
   }
   .piece-slot:active:not(.used) { transform: scale(0.95); }
   .piece-slot.used { opacity: 0.15; pointer-events: none; }
@@ -158,70 +126,58 @@
   .mini-block { position: relative; border-radius: 5px; transition: all 0.3s; }
   .mini-block::after { content: ""; position: absolute; transition: all 0.3s; }
 
-  /* 🌟 修复拖拽幽灵块：完全不透明 + 强阴影，确保清晰可见 */
+  /* 拖拽幽灵块 */
   .ghost {
-    position: fixed; display: grid; gap: var(--gap); pointer-events: none;
-    z-index: 9999; 
-    opacity: 1; /* 原来是不透明的，现在完全清晰 */
-    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.25)); /* 加深阴影，更有立体感 */
+    position: fixed; display: grid; gap: var(--gap); pointer-events: none; z-index: 9999; 
+    opacity: 1; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.25)); 
   }
   .ghost-cell { position: relative; width: var(--cell); height: var(--cell); border-radius: 7px; transition: all 0.3s;}
   .ghost-cell::after { content: ""; position: absolute; transition: all 0.3s; }
-  .ghost.invalid { opacity: 0.4; filter: grayscale(1); } /* 无效位置变灰 */
+  .ghost.invalid { opacity: 0.4; filter: grayscale(1); }
 
   #effects-layer { position: fixed; inset: 0; pointer-events: none; z-index: 10000; overflow: hidden; }
   .star-particle {
-    position: absolute; width: 14px; height: 14px; background: #FFF;
-    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-    transform: translate(-50%, -50%);
-    animation: starFly 0.7s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-    box-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
+    position: absolute; width: 14px; height: 14px; background: #FFF; clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    transform: translate(-50%, -50%); animation: starFly 0.7s cubic-bezier(0.25, 1, 0.5, 1) forwards; box-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
   }
   @keyframes starFly {
     0% { transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 1; }
     100% { transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(0) rotate(120deg); opacity: 0; }
   }
 
+  /* 设置面板 */
   .settings-overlay {
-    position: fixed; inset: 0; background: rgba(0,0,0,0.15);
-    backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center;
-    z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.3s;
+    position: fixed; inset: 0; background: rgba(0,0,0,0.15); backdrop-filter: blur(8px);
+    display: flex; align-items: center; justify-content: center; z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.3s;
   }
   .settings-overlay.active { opacity: 1; pointer-events: auto; }
   .settings-panel {
-    background: #ffffff; width: 88%; max-width: 340px; border-radius: 26px;
-    padding: 24px; box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-    transform: translateY(20px); transition: transform 0.3s;
+    background: #ffffff; width: 88%; max-width: 340px; border-radius: 26px; padding: 24px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); transform: translateY(20px); transition: transform 0.3s;
   }
   .settings-overlay.active .settings-panel { transform: translateY(0); }
   .settings-panel h3 { margin: 0 0 20px; font-size: 18px; text-align: center; color: var(--text-main); }
-  .setting-group { margin-bottom: 20px; }
+  .setting-group { margin-bottom: 18px; }
   .setting-group label { font-size: 13px; color: var(--text-sub); margin-bottom: 10px; display: block; font-weight: bold;}
   .btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
   .opt-btn {
-    flex: 1; padding: 10px 0; border-radius: 14px; border: 1px solid #eee;
-    background: #fcfcfc; color: #999; font-size: 13px; cursor: pointer; transition: all 0.2s;
+    flex: 1; padding: 10px 0; border-radius: 14px; border: 1px solid #eee; background: #fcfcfc; color: #999; font-size: 13px; cursor: pointer; transition: all 0.2s;
   }
   .opt-btn.active { background: var(--btn-active); border-color: var(--btn-active); color: var(--btn-active-text); font-weight: 900; border: 1px solid rgba(0,0,0,0.05); }
   .close-btn {
-    width: 100%; padding: 14px; margin-top: 10px; border-radius: 16px;
-    background: var(--text-main); color: #fff; font-weight: bold; border: none; font-size: 15px; cursor: pointer;
+    width: 100%; padding: 14px; margin-top: 10px; border-radius: 16px; background: var(--text-main); color: #fff; font-weight: bold; border: none; font-size: 15px; cursor: pointer;
   }
   
+  /* 游戏结束弹窗 */
   .overlay {
-    position: absolute; inset: 0; display: grid; place-items: center;
-    border-radius: var(--radius); background: rgba(255,255,255,0.85);
-    backdrop-filter: blur(6px); z-index: 20; opacity: 0; pointer-events: none; transition: opacity 0.3s;
+    position: absolute; inset: 0; display: grid; place-items: center; border-radius: var(--radius);
+    background: rgba(255,255,255,0.85); backdrop-filter: blur(6px); z-index: 20; opacity: 0; pointer-events: none; transition: opacity 0.3s;
   }
   .overlay.active { opacity: 1; pointer-events: auto; }
-  .overlay-card {
-    text-align: center; padding: 28px; border-radius: 24px; background: #fff; box-shadow: var(--shadow);
-  }
+  .overlay-card { text-align: center; padding: 28px; border-radius: 24px; background: #fff; box-shadow: var(--shadow); }
   .overlay-card h2 { margin: 0 0 10px; color: var(--text-main); }
   .overlay-card p { margin: 0 0 20px; color: var(--text-sub); }
   .primary-btn {
-    padding: 12px 28px; border-radius: 16px; border: none;
-    background: var(--text-main); color: #fff; font-weight: bold; font-size: 15px; cursor: pointer;
+    padding: 12px 28px; border-radius: 16px; border: none; background: var(--text-main); color: #fff; font-weight: bold; font-size: 15px; cursor: pointer;
   }
 
   @media (max-width: 430px) {
@@ -270,8 +226,16 @@
   <!-- 设置面板 -->
   <div class="settings-overlay" id="settingsOverlay">
     <div class="settings-panel">
-      <h3>🎨 灵感配色</h3>
+      <h3>🎮 游戏设置</h3>
       
+      <div class="setting-group">
+        <label>游戏模式</label>
+        <div class="btn-row" id="modeGroup">
+          <button class="opt-btn" data-mode="normal">常规版</button>
+          <button class="opt-btn" data-mode="endless">无尽版</button>
+        </div>
+      </div>
+
       <div class="setting-group">
         <label>主题色系</label>
         <div class="btn-row" id="themeGroup">
@@ -304,19 +268,35 @@
     'theme-vintage': ['#CAEBED', '#CCE7D9', '#63BAD9', '#B5DAE9']
   };
 
-  const SHAPES = [
-    [[0,0]], [[0,0],[1,0]], [[0,0],[0,1]], 
+  // 扩充方块池
+  // 按照面积大小排列，方便控制难度
+  const SHAPES_SMALL = [
+    [[0,0]], 
+    [[0,0],[1,0]], [[0,0],[0,1]], 
+    [[0,0],[1,0],[0,1]], [[0,0],[1,0],[1,1]], [[1,0],[0,1],[1,1]], [[0,0],[0,1],[1,1]],
     [[0,0],[1,0],[2,0]], [[0,0],[0,1],[0,2]],
-    [[0,0],[0,1],[1,1]], [[1,0],[0,1],[1,1]], [[0,0],[1,0],[0,1]], [[0,0],[1,0],[1,1]],
+    [[0,0],[1,0],[0,1],[1,1]] // 2x2
+  ];
+
+  const SHAPES_MEDIUM = [
     [[0,0],[1,0],[2,0],[3,0]], [[0,0],[0,1],[0,2],[0,3]],
-    [[0,0],[1,0],[0,1],[1,1]],
-    [[0,0],[0,1],[0,2],[1,2]], [[0,0],[1,0],[1,1],[1,2]], [[0,0],[0,1],[0,2],[1,0]], [[0,0],[1,0],[0,1],[0,2]],
-    [[0,0],[1,0],[2,0],[1,1]], [[1,0],[0,1],[1,1],[1,2]], [[0,0],[0,1],[1,1],[2,1]], [[0,0],[0,1],[0,2],[1,1]],
-    [[1,0],[2,0],[0,1],[1,1]], [[0,0],[1,0],[1,1],[2,1]], [[0,0],[0,1],[1,1],[1,2]], [[1,0],[0,1],[1,1],[0,2]],
-    [[0,0],[1,0],[2,0],[3,0],[4,0]], [[0,0],[0,1],[0,2],[0,3],[0,4]],
-    [[0,0],[1,0],[2,0],[0,1],[1,1],[2,1],[0,2],[1,2],[2,2]],
-    [[0,0],[1,0],[0,1],[1,1],[0,2],[1,2]], [[0,0],[1,0],[2,0],[0,1],[1,1],[2,1]],
-    [[1,0],[0,1],[1,1],[2,1],[1,2]]
+    [[0,0],[1,0],[0,1],[1,1],[0,2]], // P形
+    [[0,0],[1,0],[2,0],[0,1],[2,1]], // 凹槽
+    [[0,0],[1,0],[1,1],[1,2]], [[0,0],[0,1],[0,2],[1,2]],
+    [[0,0],[0,1],[0,2],[1,0]], [[0,0],[1,0],[0,1],[0,2]],
+    [[0,0],[1,0],[2,0],[1,1]], [[1,0],[0,1],[1,1],[1,2]], 
+    [[0,0],[0,1],[1,1],[2,1]], [[0,0],[0,1],[0,2],[1,1]],
+    [[1,0],[2,0],[0,1],[1,1]], [[0,0],[1,0],[1,1],[2,1]],
+    [[0,0],[0,1],[1,1],[1,2]], [[1,0],[0,1],[1,1],[0,2]],
+    [[0,0],[1,0],[2,0],[3,0],[4,0]], [[0,0],[0,1],[0,2],[0,3],[0,4]]
+  ];
+
+  const SHAPES_LARGE = [
+    [[0,0],[1,0],[2,0],[0,1],[1,1],[2,1],[0,2],[1,2],[2,2]], // 3x3
+    [[0,0],[1,0],[0,1],[1,1],[0,2],[1,2]], // 2x3
+    [[0,0],[1,0],[2,0],[0,1],[1,1],[2,1]], // 3x2
+    [[1,0],[0,1],[1,1],[2,1],[1,2]], // 十字
+    [[0,0],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]] // 4x2
   ];
 
   const boardEl = document.getElementById("board");
@@ -339,6 +319,7 @@
   let cells = [];
   let drag = null;
   
+  let gameMode = 'normal'; // 'normal' | 'endless'
   let currentTheme = 'theme-orange';
   let currentColors = COLOR_SETS[currentTheme];
 
@@ -346,8 +327,10 @@
     best = Number(localStorage.getItem("block1010-best") || 0) || 0;
     const savedTheme = localStorage.getItem("block1010-theme");
     const savedMat = localStorage.getItem("block1010-mat");
+    const savedMode = localStorage.getItem("block1010-mode");
     if(savedTheme) setTheme(savedTheme);
     if(savedMat) setMaterial(savedMat);
+    if(savedMode) setMode(savedMode);
   } catch (e) {}
 
   function initBoardDom() {
@@ -367,14 +350,59 @@
     return { w, h };
   }
 
-  function makePiece() {
-    const shape = SHAPES[Math.floor(Math.random() * SHAPES.length)];
+  // 常规版生成逻辑：多给小方块，偶尔给大块
+  function makePieceNormal() {
+    let pool;
+    const rand = Math.random();
+    if (rand < 0.5) pool = SHAPES_SMALL; // 50% 概率出小块
+    else if (rand < 0.85) pool = SHAPES_MEDIUM; // 35% 概率出中块
+    else pool = SHAPES_LARGE; // 15% 概率出大块
+    
+    const shape = pool[Math.floor(Math.random() * pool.length)];
     const colorIdx = Math.floor(Math.random() * currentColors.length);
     return { shape: shape.map(([x, y]) => [x, y]), color: colorIdx };
   }
 
+  // 无尽版生成逻辑：保证每次给的 3 个块里，至少有一个能放下
+  function generateEndlessPieces() {
+    let attempts = 0;
+    let tempPieces;
+    do {
+      tempPieces = Array.from({ length: 3 }, makePieceNormal);
+      attempts++;
+      
+      // 检查刚生成的这 3 个方块里，是否有任意一个能放在棋盘上
+      let canPlaceAny = false;
+      for (let piece of tempPieces) {
+        for (let r = 0; r < SIZE; r++) {
+          for (let c = 0; c < SIZE; c++) {
+            if (canPlace(piece, r, c)) {
+              canPlaceAny = true; break;
+            }
+          }
+          if (canPlaceAny) break;
+        }
+        if (canPlaceAny) break;
+      }
+      
+      if (canPlaceAny) {
+        pieces = tempPieces;
+        return;
+      }
+    } while (attempts < 150);
+
+    // 如果试了 150 次都放不下（说明棋盘极度拥挤），强制给全 1x1 续命
+    pieces = Array.from({ length: 3 }, () => {
+        return { shape: [[0,0]], color: Math.floor(Math.random() * currentColors.length) };
+    });
+  }
+
   function generatePieces() {
-    pieces = Array.from({ length: 3 }, makePiece);
+    if (gameMode === 'endless') {
+        generateEndlessPieces();
+    } else {
+        pieces = Array.from({ length: 3 }, makePieceNormal);
+    }
   }
 
   function canPlace(piece, row, col) {
@@ -511,7 +539,6 @@
 
     document.body.appendChild(ghost);
     
-    // 记录是否是触摸设备（手机/平板），如果是，拖拽块要往上偏移
     const isTouch = event.pointerType === 'touch';
     drag = { index, piece, ghost, w, h, metrics, row: null, col: null, isTouch };
     
@@ -533,7 +560,7 @@
     const width = w * metrics.cell + (w - 1) * metrics.gap;
     const height = h * metrics.cell + (h - 1) * metrics.gap;
 
-    // 如果是触摸，把拖拽块往上挪 60px，避免手指挡住
+    // 针对触摸屏，手指上方偏移
     const offsetY = isTouch ? 60 : 0;
 
     const left = clientX - width / 2;
@@ -542,7 +569,6 @@
     drag.ghost.style.left = `${left}px`;
     drag.ghost.style.top = `${top}px`;
 
-    // 落点根据调整后的 top 计算，保证所见即所得
     const col = Math.round((left - metrics.originLeft) / metrics.pitch);
     const row = Math.round((top - metrics.originTop) / metrics.pitch);
     drag.row = row; drag.col = col;
@@ -666,6 +692,15 @@
     gameoverEl.classList.remove("active");
   }
 
+  function setMode(modeName) {
+    gameMode = modeName;
+    document.querySelectorAll('#modeGroup .opt-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.mode === modeName);
+    });
+    try { localStorage.setItem("block1010-mode", modeName); } catch(e){}
+    resetGame(); // 切换模式必须重新开始
+  }
+
   function setTheme(themeName) {
     document.body.classList.remove('theme-orange', 'theme-guava', 'theme-vintage');
     document.body.classList.add(themeName);
@@ -677,9 +712,7 @@
     });
     
     for(let i=0; i<board.length; i++) {
-        if(board[i] !== null) {
-            board[i] = Math.floor(Math.random() * currentColors.length);
-        }
+        if(board[i] !== null) board[i] = Math.floor(Math.random() * currentColors.length);
     }
     pieces.forEach(p => {
         if(p) p.color = Math.floor(Math.random() * currentColors.length);
@@ -704,6 +737,9 @@
   closeSettings.onclick = () => settingsOverlay.classList.remove("active");
   settingsOverlay.onclick = (e) => { if(e.target === settingsOverlay) settingsOverlay.classList.remove("active"); };
 
+  document.querySelectorAll('#modeGroup .opt-btn').forEach(btn => {
+    btn.onclick = () => setMode(btn.dataset.mode);
+  });
   document.querySelectorAll('#themeGroup .opt-btn').forEach(btn => {
     btn.onclick = () => setTheme(btn.dataset.theme);
   });
@@ -714,6 +750,7 @@
   document.getElementById("restartBtn").onclick = resetGame;
   document.getElementById("resetBtn").onclick = resetGame;
 
+  // 初始化
   initBoardDom();
   generatePieces();
   updateScore();
@@ -721,6 +758,7 @@
   renderTray();
   
   setTimeout(() => {
+      document.querySelector(`.opt-btn[data-mode="${gameMode}"]`)?.classList.add('active');
       document.querySelector(`.opt-btn[data-theme="${currentTheme}"]`)?.classList.add('active');
       const mat = Array.from(document.body.classList).find(c => c.startsWith('mat-')) || 'mat-macaron';
       document.querySelector(`.opt-btn[data-mat="${mat}"]`)?.classList.add('active');
