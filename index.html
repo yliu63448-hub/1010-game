@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<title>1010 治愈版</title>
+<title>1010！</title>
 <style>
   :root {
     --board-size: min(92vw, 420px);
@@ -25,7 +25,7 @@
     --btn-active-text: #b05a36;
   }
 
-  /* 主题配置 */
+  /* ================= 主题 ================= */
   .theme-orange {
     --bg-color: #f9f9f2; --board-bg: rgba(255, 255, 255, 0.9); --board-border: #f2e9da;
     --cell-bg: #f7f3ec; --cell-border: #eee7db; --text-main: #C78060; --text-sub: #d8a892;
@@ -33,19 +33,19 @@
     --btn-active: #FFC4AF; --btn-active-text: #b05a36;
   }
   .theme-guava {
-    --bg-color: #f8faf2; --board-bg: rgba(255, 255, 255, 0.9); --board-border: #e6eedc;
+    --bg-color: #f8faf2; --board-bg: #ffffff; --board-border: #e6eedc;
     --cell-bg: #f3f7ec; --cell-border: #e6eed9; --text-main: #84a055; --text-sub: #a4b77f;
     --panel-bg: #ffffff; --shadow: 0 6px 20px rgba(170, 190, 140, 0.15);
     --btn-active: #E4F6A9; --btn-active-text: #5e7a2d;
   }
   .theme-vintage {
-    --bg-color: #f6f8f9; --board-bg: rgba(255, 255, 255, 0.9); --board-border: #e0ebf0;
+    --bg-color: #f6f8f9; --board-bg: #ffffff; --board-border: #e0ebf0;
     --cell-bg: #eff4f7; --cell-border: #e2ebf2; --text-main: #7d7e9f; --text-sub: #858ac2;
     --panel-bg: #ffffff; --shadow: 0 6px 20px rgba(130, 170, 200, 0.15);
     --btn-active: #CAEBED; --btn-active-text: #3b647c;
   }
 
-  /* 质感 */
+  /* ================= 质感 ================= */
   .mat-macaron .cell.block, .mat-macaron .mini-block, .mat-macaron .ghost-cell {
     background: var(--c1) !important;
     box-shadow: 0 2px 5px rgba(0,0,0,0.06), inset 0 -2px 0 rgba(0,0,0,0.05) !important;
@@ -69,7 +69,7 @@
     content: ""; position: absolute; top: 15%; left: 15%; width: 30%; height: 15%; background: rgba(255,255,255,0.6); border-radius: 50%;
   }
 
-  /* 基础布局 */
+  /* ================= 基础布局 ================= */
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html, body { margin: 0; min-height: 100%; overflow-x: hidden; }
   body {
@@ -105,7 +105,6 @@
     border: 2px solid var(--board-border); transition: all 0.4s ease;
   }
   
-  /* 锤子激活模式时的棋盘光标 */
   .board-shell.hammer-mode { cursor: crosshair; }
   .board-shell.hammer-mode .cell.block { animation: pulse 1s infinite alternate; cursor: crosshair;}
   @keyframes pulse { from { opacity: 0.7; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
@@ -120,14 +119,12 @@
   }
   .cell.block { z-index: 1; }
   
-  /* 强化预览落点 */
   .cell.preview {
     opacity: 0.65;
     box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.9);
     border-color: transparent;
   }
 
-  /* 托盘 */
   .tray { width: 100%; min-height: 90px; display: flex; align-items: center; justify-content: space-around; padding: 4px 0; margin-top: 10px;}
   .piece-slot {
     --mini: 15px; width: 90px; height: 84px; display: flex; align-items: center; justify-content: center;
@@ -143,7 +140,6 @@
   .mini-block { position: relative; border-radius: 5px; transition: all 0.3s; }
   .mini-block::after { content: ""; position: absolute; transition: all 0.3s; }
 
-  /* 拖拽幽灵块 */
   .ghost {
     position: fixed; display: grid; gap: var(--gap); pointer-events: none;
     z-index: 9999; opacity: 1; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.25));
@@ -152,7 +148,7 @@
   .ghost-cell::after { content: ""; position: absolute; transition: all 0.3s; }
   .ghost.invalid { opacity: 0.4; filter: grayscale(1); }
 
-  /* 道具栏 */
+  /* 工具栏 */
   .toolbar { width: 100%; display: flex; justify-content: center; gap: 16px; margin-top: 10px; }
   .tool-btn {
     display: flex; align-items: center; gap: 6px; padding: 10px 20px;
@@ -164,7 +160,7 @@
   .tool-btn.active { background: var(--btn-active); color: var(--btn-active-text); border: 2px solid var(--btn-active-text);}
   .tool-btn span { font-size: 14px; background: rgba(0,0,0,0.05); padding: 2px 8px; border-radius: 10px;}
 
-  /* 顶部提示 Toast */
+  /* 提示 Toast */
   .toast {
     position: fixed; top: 45%; left: 50%; transform: translate(-50%, -50%);
     background: rgba(0, 0, 0, 0.75); color: #fff; padding: 12px 24px;
@@ -227,14 +223,12 @@
 
     <section id="tray" class="tray"></section>
 
-    <!-- 道具栏 -->
     <div class="toolbar">
       <button class="tool-btn" id="btnSwap">🔄 换一批 <span id="swapCount">3</span></button>
       <button class="tool-btn" id="btnHammer">🔨 小锤子 <span id="hammerCount">3</span></button>
     </div>
   </div>
 
-  <!-- 设置面板 -->
   <div class="settings-overlay" id="settingsOverlay">
     <div class="settings-panel">
       <h3>🎨 治愈系定制</h3>
@@ -264,10 +258,12 @@
 <script>
 (() => {
   const SIZE = 10;
+  
+  // 完全匹配你截图里 UI 色系的低饱和度马卡龙色块
   const THEME_COLORS = {
-    'theme-orange': ['#FFC4AF', '#F9D8CA', '#E89B80', '#C78060'], // 橘子汽水 (主色/浅/深/字)
-    'theme-guava': ['#E4F6A9', '#EDF8D0', '#C0E070', '#84a055'], // 青提芭乐
-    'theme-vintage': ['#CAEBED', '#DFF3F4', '#9CCDD1', '#7d7e9f'] // 美式复古
+    'theme-orange': ['#FFC4AF', '#FDE2D3', '#E89B80', '#F9D8CA'], // 橘子汽水专属
+    'theme-guava': ['#E4F6A9', '#EDF8D0', '#C0E070', '#D6F4A8'],  // 青提芭乐专属
+    'theme-vintage': ['#CAEBED', '#DFF3F4', '#9CCDD1', '#B8E6E8'] // 美式复古专属
   };
 
   const SHAPES = [
@@ -285,7 +281,6 @@
     [[1,0],[0,1],[1,1],[2,1],[1,2]]
   ];
 
-  // 核心变量
   let board = Array(SIZE * SIZE).fill(null);
   let pieces = [];
   let score = 0;
@@ -293,16 +288,13 @@
   let cells = [];
   let drag = null;
   
-  // 道具与状态
   let swapCount = 3;
   let hammerCount = 3;
   let isHammerMode = false;
   
-  // 主题与质感
   let currentTheme = 'theme-orange';
   let currentMat = 'mat-macaron';
 
-  // DOM 获取
   const boardEl = document.getElementById("board");
   const trayEl = document.getElementById("tray");
   const scoreEl = document.getElementById("score");
@@ -314,7 +306,6 @@
   const swapCountEl = document.getElementById("swapCount");
   const hammerCountEl = document.getElementById("hammerCount");
 
-  // 设置相关
   const settingsOverlay = document.getElementById("settingsOverlay");
   document.getElementById("settingsBtn").onclick = () => settingsOverlay.classList.add("active");
   document.getElementById("closeSettings").onclick = () => settingsOverlay.classList.remove("active");
@@ -339,24 +330,21 @@
     };
   });
 
-  // 初始化
   function init() {
     boardEl.innerHTML = ""; cells = [];
     for (let i = 0; i < SIZE * SIZE; i++) {
       const cell = document.createElement("div");
       cell.className = "cell";
-      cell.onclick = () => handleCellClick(i); // 锤子模式点击
+      cell.onclick = () => handleCellClick(i);
       boardEl.appendChild(cell);
       cells.push(cell);
     }
     
     try { best = Number(localStorage.getItem("block1010-best") || 0); } catch(e) { best = 0; }
     
-    // 绑定按钮事件
     btnSwap.onclick = swapPieces;
     btnHammer.onclick = toggleHammer;
     
-    // 初始化设置面板状态
     document.querySelector(`.opt-btn[data-theme="${currentTheme}"]`)?.classList.add('active');
     document.querySelector(`.opt-btn[data-mat="${currentMat}"]`)?.classList.add('active');
 
@@ -394,7 +382,7 @@
     if (hammerCount <= 0) btnHammer.classList.add("disabled");
   }
 
-  // ================= 智能发牌核心逻辑 =================
+  // ================= 智能发牌 =================
   function canPlaceAnywhere(shape) {
     const testPiece = { shape };
     for (let r = 0; r < SIZE; r++) {
@@ -407,23 +395,18 @@
 
   function generatePieces() {
     const availableShapes = [];
-    // 扫描棋盘，挑出所有能放进去的形状
     for (const shape of SHAPES) {
-      if (canPlaceAnywhere(shape)) {
-        availableShapes.push(shape);
-      }
+      if (canPlaceAnywhere(shape)) availableShapes.push(shape);
     }
     
     pieces = [];
-    // 如果还有能放的形状，就发能放的。
     if (availableShapes.length > 0) {
       for (let i = 0; i < 3; i++) {
         const shape = availableShapes[Math.floor(Math.random() * availableShapes.length)];
-        const color = Math.floor(Math.random() * 4); // 0-3
+        const color = Math.floor(Math.random() * 4);
         pieces.push({ shape: shape.map(p => [...p]), color });
       }
     } else {
-      // 如果一个都放不下了，那就随便发，玩家会用道具自救
       for (let i = 0; i < 3; i++) {
         const shape = SHAPES[Math.floor(Math.random() * SHAPES.length)];
         const color = Math.floor(Math.random() * 4);
@@ -436,10 +419,10 @@
   function swapPieces() {
     if (swapCount <= 0) return;
     swapCount--;
-    generatePieces(); // 重新智能发牌
+    generatePieces();
     updateItemsUI();
     renderTray();
-    checkDeadEnd(); // 检查是否还是死局
+    checkDeadEnd();
   }
 
   function toggleHammer() {
@@ -447,24 +430,22 @@
     isHammerMode = !isHammerMode;
     boardShell.classList.toggle("hammer-mode", isHammerMode);
     btnHammer.classList.toggle("active", isHammerMode);
-    
-    if (isHammerMode && drag) cleanupDrag(); // 进锤子模式取消拖拽
+    if (isHammerMode && drag) cleanupDrag();
   }
 
   function handleCellClick(index) {
     if (!isHammerMode || board[index] === null) return;
-    
-    board[index] = null; // 敲掉
+    board[index] = null;
     hammerCount--;
     playStarEffect(cells[index]);
     
-    toggleHammer(); // 退出锤子模式
+    toggleHammer();
     updateItemsUI();
     renderBoard();
     checkDeadEnd(); 
   }
 
-  // ================= 软失败检查 =================
+  // ================= 软失败 =================
   function checkDeadEnd() {
     if (!hasAnyMove()) {
       showToast("没有可以放置的方块啦，快用道具自救吧~");
@@ -487,7 +468,7 @@
     }, duration);
   }
 
-  // ================= 核心游戏逻辑 =================
+  // ================= 核心逻辑 =================
   function shapeSize(shape) {
     let w = 0, h = 0;
     for (const [x, y] of shape) { w = Math.max(w, x + 1); h = Math.max(h, y + 1); }
@@ -525,7 +506,6 @@
         const hexColor = cList[value];
         cell.classList.add("block");
         cell.style.setProperty("--c1", hexColor);
-        // 果冻质感用的渐变尾部色
         cell.style.setProperty("--c2", adjustColor(hexColor, -15)); 
       }
     }
@@ -565,7 +545,6 @@
     });
   }
 
-  // 辅助函数：调整颜色深浅
   function adjustColor(hex, percent) {
     let R = parseInt(hex.substring(1,3),16), G = parseInt(hex.substring(3,5),16), B = parseInt(hex.substring(5,7),16);
     R = Math.min(255, Math.max(0, parseInt(R * (100 + percent) / 100))); 
@@ -574,7 +553,7 @@
     return "#" + R.toString(16).padStart(2,'0') + G.toString(16).padStart(2,'0') + B.toString(16).padStart(2,'0');
   }
 
-  // ================= 拖拽逻辑 =================
+  // ================= 拖拽 =================
   function getMetrics() {
     const first = cells[0].getBoundingClientRect();
     const second = cells[1].getBoundingClientRect();
@@ -705,7 +684,6 @@
       score += cleared * 10 + Math.max(0, cleared - 1) * 10;
     }
 
-    // 如果三个方块都用光了，发新的一批
     if (pieces.every((p) => !p)) {
       generatePieces();
     }
@@ -716,7 +694,7 @@
     checkDeadEnd();
   }
 
-  // ================= 星星特效 =================
+  // ================= 特效 =================
   const effectsLayer = document.getElementById("effects-layer") || (() => {
     const el = document.createElement("div");
     el.id = "effects-layer";
@@ -756,7 +734,6 @@
     }
   }
 
-  // 启动
   init();
 })();
 </script>
